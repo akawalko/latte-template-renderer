@@ -1,0 +1,29 @@
+{
+  "name": "akawalko/latte-template-renderer",
+  "description": "Interface implementation for a class that renders tests/templates for string and PSR-7 response objects using Latte engine - a Next-Generation Templating System for PHP.",
+  "minimum-stability": "stable",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Arkadiusz Kawałko"
+    }
+  ],
+  "require": {
+    "php": ">=8.0 <8.2",
+    "ext-json": "*",
+    "ext-tokenizer": "*",
+    "latte/latte": "^3.0",
+    "akawalko/template-renderer-interface": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Akawalko\\LatteTemplateRenderer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Akawalko\\LatteTemplateRenderer\\Tests\\": "tests/"
+    }
+  }
+}
