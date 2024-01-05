@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <span class="message" n:if="$message">{$message}</span>
+
+    <span n:if="$luckyNumbers">Today lucky numbers are:</span>
+    <ul n:if="$luckyNumbers">
+        <li n:foreach="$luckyNumbers as $number">{$number}</li>
+    </ul>
+</body>
+</html>
