@@ -73,7 +73,7 @@ $obj->age = '34';
 
 $latteRenderer->setVars($obj);
 ```
-In the template, however, the data will be available without using a prefix in the form of an object
+In the template, however, the data will be available without using a prefix in the form of an object.
 ```latte
 // this
 {$firstname}<br>
@@ -81,8 +81,8 @@ In the template, however, the data will be available without using a prefix in t
 {$age}<br>
 // instead of
 {$someObjectname->firstname}<br>
-{$someObjectname->$lastname}<br>
-{$someObjectname->$age}<br>
+{$someObjectname->lastname}<br>
+{$someObjectname->age}<br>
 ```
 For this to work, the given object must meet 1 of 3 conditions:
 - implement JsonSerializable interface
