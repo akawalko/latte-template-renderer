@@ -4,7 +4,6 @@ for string and [PSR-7](https://www.php-fig.org/psr/psr-7/) response objects usin
 Templating System for PHP.
 
 ## Installation
-
 You can download this library using [Composer](https://getcomposer.org/):
 
 Require
@@ -12,6 +11,29 @@ php: >=8.0
 
 ```
 composer require akawalko/latte-template-renderer
+```
+
+## Setup
+Example integration using the [PHP-DI](https://php-di.org/) container.
+
+```php
+// app/dependencies.php
+return function (ContainerBuilder $containerBuilder) {
+        LatteRenderer::class => function (ContainerInterface $c) {
+            $latte = new \Latte\Engine();
+            $latte->setLoader(new FileLoader($c->get('templates.directory.host')));
+            $latte->setTempDirectory($c->get('templates.directory.temp_directory'));
+            $latte->setAutoRefresh($c->get('templates.directory.auto_refresh'));
+
+            // If you have any additional filters or extensions, register them now.
+            //$latte->addExtension(new SomekindExtension());
+            //$latte->addFilter('some_filter', fn(string $s) => ...);
+
+            return new LatteTemplateRenderer($latte);
+        },
+        // A convenient alias
+        'template' => get(TemplateRenderer::class),
+};
 ```
 
 ## Methods
